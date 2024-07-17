@@ -1,0 +1,33 @@
+digraph Parser {
+"Parser"["label"="Parser\nInput: \"a x c $\"\nLocation: 1 (' ')\nStep 19: Expanding"];
+"todo-3"["label"="<0> 0", "shape"="record"];
+"1610612734"["label"="Skipping: \n.0@2\nin: 'ABC -> a Layout b Layout c'"];
+"1610612733"["label"="RecoveryPoint: 1610612733\n.2@2\nin: 'ABC -> a Layout b Layout c'"];
+"35"["label"="NonTerminal: ABC\n.0@0"];
+"-1"["label"="NonTerminal: S\n.0@-1"];
+"35" -> "-1";
+"1610612733" -> "35";
+"1610612734" -> "1610612733";
+"todo-3":"0":sw -> "1610612734"["label"="Stack"];
+"668929853"["shape"="octagon", "label"="Skipped\n.2@2:  \"x\"\nin: 'ABC -> a Layout b Layout c'"];
+"todo-3":"0":se -> "668929853"["label"="Node"];
+"todoLists":"3" -> "todo-3";
+"todoLists"["label"="<0> 0 | <1> 1 | <2> 2 | <3> 3 | <4> 4 | <5> 5 | <6> 6 | <7> 7 | <8> 8 | <9> 9 | <10> 10 | <11> 11 | <12> 12 | <13> 13 | <14> 14 | <15> 15 | <16> 16 | <17> 17 | <18> 18", "shape"="record"];
+"Parser" -> "todoLists"["label"="todo lists"];
+"stacksToExpand"["label"="", "shape"="record", "color"="red"];
+"Parser" -> "stacksToExpand"["label"="stacks to expand"];
+"terminalsToReduce"["label"="", "shape"="record"];
+"Parser" -> "terminalsToReduce"["label"="terminals to reduce"];
+"nonTerminalsToReduce"["label"="", "shape"="record"];
+"Parser" -> "nonTerminalsToReduce"["label"="non-terminals to reduce"];
+"unexpandableNodes"["label"="", "shape"="record"];
+"unmatchableLeafNodes"["label"="", "shape"="record"];
+"unmatchableMidProductionNodes"["shape"="record", "label"=""];
+"filteredNodes"["label"="", "shape"="record"];
+"error"["label"="Errors"];
+"Parser" -> "error"["label"="error tracking"];
+"error" -> "unexpandableNodes"["label"="unexpandable"];
+"error" -> "unmatchableLeafNodes"["label"="unmatchable leafs"];
+"error" -> "unmatchableMidProductionNodes"["label"="unmatchable mid-prod"];
+"error" -> "filteredNodes"["label"="filtered"];
+}

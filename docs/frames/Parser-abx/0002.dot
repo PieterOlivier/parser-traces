@@ -1,0 +1,34 @@
+digraph Parser {
+"Parser"["label"="Parser\nInput: \"a b x $\"\nLocation: 1 (' ')\nStep 2: Reducing terminals"];
+"todo-1"["label"="<0> 0", "shape"="record"];
+"55"["label"="Literal: \n.0@0"];
+"35"["label"="NonTerminal: ABC\n.0@0"];
+"-1"["label"="NonTerminal: S\n.0@-1"];
+"35" -> "-1";
+"55" -> "35";
+"todo-1":"0":sw -> "55"["label"="Stack"];
+"2083071191"["shape"="octagon", "label"="Literal \"a\""];
+"todo-1":"0":se -> "2083071191"["label"="Node"];
+"todoLists":"1" -> "todo-1";
+"todoLists"["label"="<0> 0 | <1> 1 | <2> 2 | <3> 3 | <4> 4 | <5> 5 | <6> 6 | <7> 7 | <8> 8 | <9> 9 | <10> 10 | <11> 11 | <12> 12 | <13> 13 | <14> 14 | <15> 15", "shape"="record"];
+"Parser" -> "todoLists"["label"="todo lists"];
+"stacksToExpand"["label"="", "shape"="record"];
+"Parser" -> "stacksToExpand"["label"="stacks to expand"];
+"terminalsToReduce"["label"="<0> 0", "shape"="record", "color"="red"];
+"terminalsToReduce":"0":sw -> "55"["label"="Stack"];
+"2083071191"["shape"="octagon", "label"="Literal \"a\""];
+"terminalsToReduce":"0":se -> "2083071191"["label"="Node"];
+"Parser" -> "terminalsToReduce"["label"="terminals to reduce"];
+"nonTerminalsToReduce"["label"="", "shape"="record"];
+"Parser" -> "nonTerminalsToReduce"["label"="non-terminals to reduce"];
+"unexpandableNodes"["label"="", "shape"="record"];
+"unmatchableLeafNodes"["label"="", "shape"="record"];
+"unmatchableMidProductionNodes"["shape"="record", "label"=""];
+"filteredNodes"["label"="", "shape"="record"];
+"error"["label"="Errors"];
+"Parser" -> "error"["label"="error tracking"];
+"error" -> "unexpandableNodes"["label"="unexpandable"];
+"error" -> "unmatchableLeafNodes"["label"="unmatchable leafs"];
+"error" -> "unmatchableMidProductionNodes"["label"="unmatchable mid-prod"];
+"error" -> "filteredNodes"["label"="filtered"];
+}

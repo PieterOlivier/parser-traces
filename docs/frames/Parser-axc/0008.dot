@@ -1,0 +1,29 @@
+digraph Parser {
+"Parser"["label"="Parser\nInput: \"a x c $\"\nLocation: 2 ('x')\nStep 8: Reducing non-terminals"];
+"todoLists"["label"="<0> 0 | <1> 1 | <2> 2 | <3> 3 | <4> 4 | <5> 5 | <6> 6 | <7> 7 | <8> 8 | <9> 9 | <10> 10 | <11> 11 | <12> 12 | <13> 13 | <14> 14 | <15> 15", "shape"="record"];
+"Parser" -> "todoLists"["label"="todo lists"];
+"stacksToExpand"["label"="", "shape"="record"];
+"Parser" -> "stacksToExpand"["label"="stacks to expand"];
+"terminalsToReduce"["label"="", "shape"="record"];
+"Parser" -> "terminalsToReduce"["label"="terminals to reduce"];
+"nonTerminalsToReduce"["label"="<0> 0", "shape"="record", "color"="red"];
+"56"["label"="NonTerminal: Layout\n.1@1"];
+"35"["label"="NonTerminal: ABC\n.0@0"];
+"-1"["label"="NonTerminal: S\n.0@-1"];
+"35" -> "-1";
+"56" -> "35";
+"nonTerminalsToReduce":"0":sw -> "56"["label"="Stack"];
+"429269396"["shape"="octagon", "label"="SortContainer 1-2\n'Layout -> [range(32,32)]'"];
+"nonTerminalsToReduce":"0":se -> "429269396"["label"="Node"];
+"Parser" -> "nonTerminalsToReduce"["label"="non-terminals to reduce"];
+"unexpandableNodes"["label"="", "shape"="record"];
+"unmatchableLeafNodes"["label"="", "shape"="record"];
+"unmatchableMidProductionNodes"["shape"="record", "label"=""];
+"filteredNodes"["label"="", "shape"="record"];
+"error"["label"="Errors"];
+"Parser" -> "error"["label"="error tracking"];
+"error" -> "unexpandableNodes"["label"="unexpandable"];
+"error" -> "unmatchableLeafNodes"["label"="unmatchable leafs"];
+"error" -> "unmatchableMidProductionNodes"["label"="unmatchable mid-prod"];
+"error" -> "filteredNodes"["label"="filtered"];
+}

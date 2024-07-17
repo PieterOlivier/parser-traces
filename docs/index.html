@@ -1,0 +1,46 @@
+<html>
+	<body>
+		<h1>Error recovery traces</h1>
+		<div>
+			Rascal module:
+			Syntax:
+			<pre>
+module lang::rascal::tests::recovery::BasicRecoveryTests
+
+import ParseTree;
+
+layout Layout = [\ ]; //* !>> [\ ];
+
+syntax S = ABC End;
+syntax ABC = "a" "b" "c";
+syntax End = "$";
+
+test bool ok() {
+	return !hasErrors(parse(#S, "a b c $", allowRecovery=true));
+}
+
+test bool abx() {
+	Tree t = parse(#S, "a b x $", allowRecovery=true);
+	return hasErrors(t) && size(findAllErrors(t)) == 1;
+}
+
+test bool axc() {
+	Tree t = parse(#S, "a x c $", allowRecovery=true);
+	return hasErrors(t) && size(findAllErrors(t)) == 1;
+}
+
+test bool ax() {
+	Tree t = parse(#S, "a x $", allowRecovery=true);
+	return hasErrors(t) && size(findAllErrors(t)) == 1;
+}
+			</pre>
+			<h3>Traces:</h3>
+			<ul>
+				<li><a href="replay.html?name=Parser-abc&frame=1">a b c $</a> (succeeds)</li>
+				<li><a href="replay.html?name=Parser-abx&frame=1">a b x $</a> (succeeds)</li>
+				<li><a href="replay.html?name=Parser-ax&frame=1">a x $</a> (succeeds)</li>
+				<li><a href="replay.html?name=Parser-axc&frame=1">a x c $</a> (fails)</li>
+			</ul>
+		</div>
+	</body>
+</html>

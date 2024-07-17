@@ -1,0 +1,21 @@
+digraph Parser {
+"Parser"["label"="Parser\nInput: \"a b c $\"\nLocation: 7 ('$')\nStep 35: Finding stacks to reduce"];
+"todoLists"["label"="<0> 0 | <1> 1 | <2> 2 | <3> 3 | <4> 4 | <5> 5 | <6> 6 | <7> 7 | <8> 8 | <9> 9 | <10> 10 | <11> 11 | <12> 12 | <13> 13 | <14> 14 | <15> 15", "shape"="record", "color"="red"];
+"Parser" -> "todoLists"["label"="todo lists"];
+"stacksToExpand"["label"="", "shape"="record"];
+"Parser" -> "stacksToExpand"["label"="stacks to expand"];
+"terminalsToReduce"["label"="", "shape"="record"];
+"Parser" -> "terminalsToReduce"["label"="terminals to reduce"];
+"nonTerminalsToReduce"["label"="", "shape"="record"];
+"Parser" -> "nonTerminalsToReduce"["label"="non-terminals to reduce"];
+"unexpandableNodes"["label"="", "shape"="record"];
+"unmatchableLeafNodes"["label"="", "shape"="record"];
+"unmatchableMidProductionNodes"["shape"="record", "label"=""];
+"filteredNodes"["label"="", "shape"="record"];
+"error"["label"="Errors"];
+"Parser" -> "error"["label"="error tracking"];
+"error" -> "unexpandableNodes"["label"="unexpandable"];
+"error" -> "unmatchableLeafNodes"["label"="unmatchable leafs"];
+"error" -> "unmatchableMidProductionNodes"["label"="unmatchable mid-prod"];
+"error" -> "filteredNodes"["label"="filtered"];
+}

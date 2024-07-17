@@ -1,0 +1,35 @@
+digraph Parser {
+"Parser"["label"="Parser\nInput: \"a x $\"\nLocation: 2 ('x')\nStep 9: Expanding"];
+"todoLists"["label"="<0> 0 | <1> 1 | <2> 2 | <3> 3 | <4> 4 | <5> 5 | <6> 6 | <7> 7 | <8> 8 | <9> 9 | <10> 10 | <11> 11 | <12> 12 | <13> 13 | <14> 14 | <15> 15", "shape"="record"];
+"Parser" -> "todoLists"["label"="todo lists"];
+"stacksToExpand"["label"="", "shape"="record", "color"="red"];
+"Parser" -> "stacksToExpand"["label"="stacks to expand"];
+"terminalsToReduce"["label"="", "shape"="record"];
+"Parser" -> "terminalsToReduce"["label"="terminals to reduce"];
+"nonTerminalsToReduce"["label"="", "shape"="record"];
+"Parser" -> "nonTerminalsToReduce"["label"="non-terminals to reduce"];
+"unexpandableNodes"["label"="", "shape"="record"];
+"unmatchableLeafNodes"["label"="", "shape"="record"];
+"unmatchableMidProductionNodes"["shape"="record", "label"="<0> 0"];
+"unmatchable-mid-production-0"["shape"="record", "label"="<failedNode> Failed Node | <predecessors> Predecessors"];
+"unmatchableMidProductionNodes":"0" -> "unmatchable-mid-production-0";
+"57"["label"="Literal: \n.2@-1"];
+"unmatchable-mid-production-predecessors-0"["label"="<0> 0", "shape"="record"];
+"56"["label"="NonTerminal: Layout\n.1@1"];
+"35"["label"="NonTerminal: ABC\n.0@0"];
+"-1"["label"="NonTerminal: S\n.0@-1"];
+"35" -> "-1";
+"56" -> "35";
+"unmatchable-mid-production-predecessors-0":"0":sw -> "56"["label"="Stack"];
+"1410514922"["shape"="octagon", "label"="SortContainer 1-2\n'Layout -> [range(32,32)]'"];
+"unmatchable-mid-production-predecessors-0":"0":se -> "1410514922"["label"="Node"];
+"unmatchable-mid-production-0":"failedNode" -> "57";
+"unmatchable-mid-production-0":"predecessors" -> "unmatchable-mid-production-predecessors-0";
+"filteredNodes"["label"="", "shape"="record"];
+"error"["label"="Errors"];
+"Parser" -> "error"["label"="error tracking"];
+"error" -> "unexpandableNodes"["label"="unexpandable"];
+"error" -> "unmatchableLeafNodes"["label"="unmatchable leafs"];
+"error" -> "unmatchableMidProductionNodes"["label"="unmatchable mid-prod"];
+"error" -> "filteredNodes"["label"="filtered"];
+}
